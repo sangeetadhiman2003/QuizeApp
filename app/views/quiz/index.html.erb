@@ -1,0 +1,12 @@
+<h1>Quiz</h1>
+
+<%= form_tag(evaluate_test_quiz_index_path, method: :post) do %>
+  <% @questions.each do |question| %>
+    <p><%= question.prompt %></p>
+    <%= radio_button_tag "answers[#{question.id}]", 'a' %> (a)
+    <%= radio_button_tag "answers[#{question.id}]", 'b' %> (b)
+    <%= radio_button_tag "answers[#{question.id}]", 'c' %> (c)
+  <% end %>
+
+  <%= submit_tag "Submit" %>
+<% end %>
